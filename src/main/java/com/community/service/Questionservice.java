@@ -5,6 +5,9 @@ import com.community.mapper.QuestionMapper;
 import com.community.mapper.UserMapper;
 import com.community.model.Question;
 import com.community.model.User;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +22,20 @@ public class Questionservice {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuestionDTO> list() {
+    public PageInfo<Question> list(int pageNum, int pageSize) {
+
+        PageHelper.startPage(pageNum, pageSize);
         List<Question> questions = questionMapper.list();
-        List<QuestionDTO> questionDTOList = new ArrayList<>();
-        for(Question question : questions){
-            User user = userMapper.findById(question.getCreator());
-            QuestionDTO questionDTO = new QuestionDTO();
-            BeanUtils.copyProperties(question,questionDTO);
-            questionDTO.setUser(user);
-            questionDTOList.add(questionDTO);
-        }
-        return questionDTOList;
+//      原本的代码 为了避免二次查询影响pagehelper注释掉 直接在question表中加入头像字段
+//      List<QuestionDTO> questionDTOList = new ArrayList<>();
+//      for(Question question : questions){
+//          User user = userMapper.findById(question.getCreator());
+//          QuestionDTO questionDTO = new QuestionDTO();
+//          BeanUtils.copyProperties(question,questionDTO);
+//          questionDTO.setUser(user);
+//          questionDTOList.add(questionDTO);
+//        }
+        PageInfo<Question> pageInfo = new PageInfo<>(questions);
+        return pageInfo;
     }
 }

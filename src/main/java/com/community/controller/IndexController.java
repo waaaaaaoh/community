@@ -6,6 +6,7 @@ import com.community.mapper.UserMapper;
 import com.community.model.Question;
 import com.community.model.User;
 import com.community.service.Questionservice;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,9 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request,
-                        Model model) {
+                        Model model,
+                        @RequestParam(defaultValue = "1") int pageNum,
+                        @RequestParam(defaultValue = "5") int pageSize) {
         Cookie[] cookies = request.getCookies();
         if(cookies != null && cookies.length != 0)
             for(Cookie cookie : cookies){
@@ -40,8 +43,12 @@ public class IndexController {
                     break;
                 }
             }
-        List<QuestionDTO> questionList = questionservice.list();
-        model.addAttribute("question",questionList);
+
+
+        PageInfo<Question> question = questionservice.list(pageNum,pageSize);
+//      原本的传往前端的值
+//      List<QuestionDTO> questionList = questionservice.list(page,size);
+        model.addAttribute("question",question);
 
         return "index";
 
