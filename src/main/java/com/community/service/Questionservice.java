@@ -38,4 +38,11 @@ public class Questionservice {
         PageInfo<Question> pageInfo = new PageInfo<>(questions);
         return pageInfo;
     }
+
+    public PageInfo<Question> list(Integer userId, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Question> questions = questionMapper.listFindById(userId);
+        PageInfo<Question> pageInfo = new PageInfo<>(questions);
+        return pageInfo;
+    }
 }
