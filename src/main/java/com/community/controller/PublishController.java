@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class PublishController {
 
 
+
     @Autowired
     private Questionservice questionservice;
 
@@ -46,7 +47,7 @@ public class PublishController {
             @RequestParam("title")  String title,
             @RequestParam("description") String description,
             @RequestParam("tag")String tag,
-            @RequestParam("id")int id,
+            @RequestParam("id")Integer id,
             HttpServletRequest request,
             Model model){
 
