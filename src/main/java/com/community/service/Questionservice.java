@@ -1,6 +1,8 @@
 package com.community.service;
 
 import com.community.dto.QuestionDTO;
+import com.community.exception.CustomizeErrorCode;
+import com.community.exception.CustomizeException;
 import com.community.mapper.QuestionMapper;
 import com.community.mapper.UserMapper;
 import com.community.model.Question;
@@ -48,6 +50,9 @@ public class Questionservice {
 
     public QuestionDTO getByid(Integer id) {
         Question question = questionMapper.getByid(id);
+        if(question == null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
         User user = userMapper.findById(question.getCreator());
@@ -62,9 +67,19 @@ public class Questionservice {
             question.setGmtModified(question.getGmtCreate());
             questionMapper.create(question);
         }else{
-            //更新
+            //更新 为解决权限问题 通过地址栏非法传入id可以修改他人的问题 后续应添加发布人与修改人验证功能
             question.setGmtModified(System.currentTimeMillis());
-            questionMapper.update(question);
+            int flag = questionMapper.update(question);
+//            System.out.println(flag);
+            if(flag != 1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = questionMapper.getByid(id);
+//        question.setViewCount(question.getViewCount()+1);
+        questionMapper.updateViews(question);
     }
 }
