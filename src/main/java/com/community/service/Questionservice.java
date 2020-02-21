@@ -41,14 +41,14 @@ public class Questionservice {
         return pageInfo;
     }
 
-    public PageInfo<Question> list(Integer userId, int pageNum, int pageSize) {
+    public PageInfo<Question> list(Long userId, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<Question> questions = questionMapper.listFindById(userId);
         PageInfo<Question> pageInfo = new PageInfo<>(questions);
         return pageInfo;
     }
 
-    public QuestionDTO getByid(Integer id) {
+    public QuestionDTO getByid(Long id) {
         Question question = questionMapper.getByid(id);
         if(question == null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
@@ -77,9 +77,15 @@ public class Questionservice {
         }
     }
 
-    public void incView(Integer id) {
+    public void incView(Long id) {
         Question question = questionMapper.getByid(id);
 //        question.setViewCount(question.getViewCount()+1);
         questionMapper.updateViews(question);
     }
+
+    public void incCommentCount(Long id) {
+        Question question = questionMapper.getByid(id);
+        questionMapper.updateCommentCount(question);
+    }
+
 }

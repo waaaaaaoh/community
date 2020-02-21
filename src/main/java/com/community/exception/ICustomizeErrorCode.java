@@ -1,6 +1,6 @@
 package com.community.exception;
 
 public interface ICustomizeErrorCode {
-   public String getMessage();
-
+   String getMessage();
+   Integer getCode();
 }

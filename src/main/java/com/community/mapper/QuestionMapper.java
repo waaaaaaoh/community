@@ -14,14 +14,17 @@ public interface QuestionMapper {
     List<Question> list();
 
     @Select("select * from question where creator = #{userId}")
-    List<Question> listFindById(@Param("userId") Integer userId);
+    List<Question> listFindById(@Param("userId") Long userId);
 
     @Select("select * from question where id = #{id}")
-    Question getByid(@Param("id") Integer id);
+    Question getByid(@Param("id") Long id);
 
     @Update("update question set title = #{title}, description = #{description}, gmt_modified = #{gmtModified}, tag = #{tag} where id = #{id}")
     int update(Question question);
 
     @Update("update question set view_count = view_count + 1 where id = #{id}")
     void updateViews(Question question);
+
+    @Update("update question set comment_count = comment_count + 1 where id = #{id}")
+    void updateCommentCount(Question question);
 }
