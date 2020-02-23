@@ -3,6 +3,9 @@ package com.community.mapper;
 import com.community.model.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
 @Repository
 @Mapper
 
@@ -21,4 +24,7 @@ public interface UserMapper {
 
     @Update("update user set name = #{name},token = #{token},gmt_modified = #{gmtModified}, avatar_url = #{avatarUrl} where account_id = #{accountId}")
     void update(User dbUser);
+
+    @Select("select * from user where id = #{id}")
+    List<User> findListById(Long id);
 }

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Mapper
 public interface CommentMapper {
 
@@ -14,4 +16,7 @@ public interface CommentMapper {
 
     @Select("select * from comment where parent_id = #{parentId}")
     Comment selectByKey(Long parentId);
+
+    @Select("select * from comment where parent_id = #{parentId}")
+    List<Comment> selectListByKey(Long id);
 }
