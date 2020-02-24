@@ -10,12 +10,14 @@ import com.community.model.User;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 @Service
 public class Questionservice {
@@ -88,4 +90,16 @@ public class Questionservice {
         questionMapper.updateCommentCount(question);
     }
 
+    public List<QuestionDTO> selectRelated(QuestionDTO questionDTO) {
+            if(StringUtils.isBlank(questionDTO.getTag())){
+                return new ArrayList<>();
+            }
+            QuestionDTO questionDTO1 = new QuestionDTO();
+//          BeanUtils.copyProperties(source,target)
+            BeanUtils.copyProperties(questionDTO,questionDTO1);
+            questionDTO1.setTag(questionDTO1.getTag().replace(",","|"));
+            List<QuestionDTO> questionDTOList = questionMapper.selectRelated(questionDTO1);
+            return questionDTOList;
+
+    }
 }

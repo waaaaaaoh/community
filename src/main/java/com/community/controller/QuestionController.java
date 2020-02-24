@@ -24,12 +24,15 @@ public class QuestionController {
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id")Long id, Model model){
         QuestionDTO questionDTO = questionservice.getByid(id);
+        List<QuestionDTO> questionDTOList = questionservice.selectRelated(questionDTO);
+
 //      注意后期完善反转链表 实现新回复在页面上方
         List<CommentDTO> comments = commentService.ListByQuestionId(id);
         //累加阅读数
         questionservice.incView(id);
         model.addAttribute("question",questionDTO);
         model.addAttribute("comments",comments);
+        model.addAttribute("relatedQuestion",questionDTOList);
         return "question";
     }
 }

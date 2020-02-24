@@ -1,7 +1,9 @@
 package com.community.mapper;
 
+import com.community.dto.QuestionDTO;
 import com.community.model.Question;
 import org.apache.ibatis.annotations.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,4 +29,7 @@ public interface QuestionMapper {
 
     @Update("update question set comment_count = comment_count + 1 where id = #{id}")
     void updateCommentCount(Question question);
+
+    @Select("select  * from question  where tag REGEXP #{tag} and id != #{id}")
+    List<QuestionDTO> selectRelated(QuestionDTO questionDTO);
 }
