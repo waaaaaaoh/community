@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>论坛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="css/community.css"/>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<!--轮播图-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <ul class="list">
+            <li class="item active">
+                <img src="/img/zwy0.jpg" style="width: 100%">
+            </li>
+            <li class="item">
+                <img src="/img/zwy1.jpg" style="width: 100%">
+            </li>
+            <li class="item">
+                <img src="/img/zwy2.jpg" style="width: 100%">
+            </li>
+            <li class="item">
+                <img src="/img/zwy3.jpg" style="width: 100%">
+            </li>
+            <li class="item">
+                <img src="/img/zwy4.jpg" style="width: 100%">
+            </li>
+        </ul>
+    <ul class="pointList">
+        <li class="point active" data-index='0'></li>
+        <li class="point" data-index='1'></li>
+        <li class="point" data-index='2'></li>
+        <li class="point" data-index='3'></li>
+        <li class="point" data-index='4'></li>
+    </ul>
+        <button type="button" class="home-btn" id="go-pre"><</button>
+        <button type="button" class="home-btn" id="go-next">></button>
+</div>
+
+<script>
+    // 图片
+    var items = document.getElementsByClassName('item');
+    var goPreBtn = document.getElementById('go-pre');
+    var goNextBtn = document.getElementById('go-next');
+    //点
+    var points = document.getElementsByClassName('point');
+    //定时器图片跳转时间参数
+    var time = 0 ;
+
+    var index = 0;
+
+    var  clearActive = function () {
+        for(var i = 0; i < items.length; i++){
+            items[i].className = 'item';
+        }
+        for(var i = 0; i < points.length; i++){
+            points[i].className = 'point';
+        }
+    }
+
+    var goIndex = function () {
+        clearActive();
+        items[index].className ='item active';
+        points[index].className = 'point active';
+    }
+
+    var goNext = function(){
+        if(index < 4){
+            index++;
+        }else{
+            index = 0;
+        }
+        goIndex();
+        time = 0;
+    }
+
+    var goPre = function(){
+        if(index == 0){
+            index = 4;
+        }else{
+            index--;
+        }
+        goIndex()
+        time = 0;
+    }
+
+    goNextBtn.addEventListener('click',function () {
+        goNext();
+    })
+    goPreBtn.addEventListener('click',function () {
+        goPre();
+    })
+
+    for (var i = 0; i < points.length; i++){
+        points[i].addEventListener('click',function () {
+            var pointIndex = this.getAttribute('data-index');
+            index = pointIndex;
+            goIndex();
+            time = 0;
+        })
+    }
+
+//    定时器实现2s自动轮播
+    setInterval(function () {
+       time++;
+       if(time == 20){
+           goNext();
+       }
+       if(time > 20){
+           time = 0;
+           goNext();
+       }
+    },100)
+</script>
+<!--以上为轮播图-->
+
+</body>
+</html>
