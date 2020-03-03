@@ -85,6 +85,7 @@ body{
     margin-top: 15px;
 }
 
+/*缩略图*/
 .list{
     width: 1426px;
     height: 400px;
@@ -142,4 +143,312 @@ body{
 }
 .pointList .active{
     background-color: white;
+}
+
+.fl{
+    float: left;
+}
+
+/*新闻动态*/
+.news{
+    width: 100%;
+    padding: 35px 80px 0 80px;
+}
+
+.news .description{
+    color: gray;
+    padding: 16px 0 12px;
+    font-size: 14px;
+    min-height: 50px;
+    line-height: 25px;
+}
+
+.news .ul-css{
+    padding: 35px 0 0 23px;
+    margin-bottom: 64px;
+    background-color: white;
+    list-style-type: none;
+    float: left;
+}
+
+.news .li-css{
+    width: 427px;
+    height: 360px;
+    padding: 0 13px;
+    margin-bottom: 45px;
+    float: left;
+    background: url(/img/xx1.jpg) bottom repeat-x;
+}
+.news .a-css{
+    overflow: hidden;
+    display: inline-block;
+    width: 400px;
+    height: 360px;
+    position: relative;
+    font-size: 14px;
+    padding-left: 20px;
+    color: black;
+}
+
+.news .div{
+    width: 360px;
+    height: 220px;
+    display: inline-block;
+    overflow: hidden;
+}
+.news .img{
+    width: 360px;
+    height: 220px;
+}
+
+.news .title{
+    width: 100%;
+    margin-top: 8px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
+    font-size: 20px;
+}
+.news .title:hover{
+    color: #4cae4c;
+}
+.clear-both{
+    clear: both;
+}
+/*科普教育*/
+.kpjy{
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+    list-style-type: none;
+    padding: 35px 80px 0px;
+}
+.kpjy .img{
+    width: 447px;
+    height: 335px;
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 50px;
+}
+.img-size{
+    width: 447px;
+    height: 335px;
+}
+.kpjy .imgr{
+    width: 610px;
+    height: 335px;
+    padding-left: 70px;
+}
+.imgr .s1{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    border-bottom: 1px solid #efefef;
+    color: gray;
+    font-size: 15px;
+}
+.imgr .s2{
+    width: 100%;
+    height: 58px;
+    line-height: 58px;
+    overflow: hidden;
+    color: #333;
+    font-size: 25px;
+}
+.s2:hover{
+    color: #4cae4c;
+}
+.imgr .s3{
+    width: 100%;
+    height: 125px;
+    line-height: 25px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.imgr .s4{
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    color: #469946;
+    font-size: 15px;
+}
+.kpjy li{
+    width: 100%;
+    padding-bottom: 20px;
+    float: left;
+}
+
+/*园林园艺*/
+.ylyy{
+    width: 100%;
+    margin-bottom: 45px;
+    float:left;
+    list-style-type: none;
+    padding: 35px 80px 0 80px;
+}
+.ylyy li{
+    width: 320px;
+    height: 320px;
+    float: left;
+    padding-left: 20px;
+}
+.ylyy .img{
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.ylyy img-size{
+    width: 300px;
+    height: 300px;
+}
+.ylyy .a-text{
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    background: url(/img/e4.png) repeat;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+/*游客服务*/
+.ykfw{
+    padding: 35px 80px 0 80px;
+}
+.ykfw .img{
+    width: 602px;
+    height: 339px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+.ykfw .img-size{
+    width: 602px;
+    height: 339px;
+}
+.ykfw .imgr{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    text-indent: 28px;
+    background-color: #2a2a27;
+    overflow: hidden;
+    color: #fff;
+    font-size: 18px;
+}
+.ykfw .c{
+    width: 510px;
+    padding: 30px 0 0 30px;
+}
+.ykfw .ct{
+    width: 100%;
+    padding-bottom: 20px;
+}
+.ykfw .con{
+    width: 100%;
+    height: 170px;
+    padding-left: 35px;
+}
+.ykfw .xx{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100px;
+    line-height: 25px;
+    overflow: hidden;
+    color: #666;
+    display:block;
+}
+.ykfw .xx-hidden{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100px;
+    line-height: 25px;
+    overflow: hidden;
+    color: #666;
+    display: none;
+}
+.ykfw .btn{
+    width: 110px;
+    height: 30px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #999;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+}
+.ct a{
+    width: 99px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #2a2a27;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #2a2a27;
+    font-size: 14px;
+}
+/*页尾*/
+.yw{
+    width: 1205px;
+    margin: 0 auto;
+}
+.yw .top{
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0efe1;
+}
+.yw .ctitle{
+    line-height: 30px;
+    color: #333;
+    font-size: 20px;
+    padding-top: 35px;
+}
+.yw .down{
+    width: 100%;
+    padding-top: 20px;
+}
+.down .left{
+    width: 600px;
+}
+.down .right{
+    line-height: 30px;
+    font-size: 14px;
+    color: #666;
+}
+
+.left .t{
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 13px;
+    overflow: hidden;
+}
+.left .c{
+    width: 100%;
+    padding-left: 20px;
+}
+
+.yw .right{
+    margin-top: 30px;
+    text-align: center;
+    color: #3a968f;
+    font-size: 14px;
+    line-height: 2.2;
 }

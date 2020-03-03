@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>论坛</title>
+    <title>植物园主页</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
@@ -14,24 +14,24 @@
 <div th:insert="~{navigation :: nav}"></div>
 
 <!--轮播图-->
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <ul class="list">
-            <li class="item active">
-                <img src="/img/zwy0.jpg" style="width: 100%">
-            </li>
-            <li class="item">
-                <img src="/img/zwy1.jpg" style="width: 100%">
-            </li>
-            <li class="item">
-                <img src="/img/zwy2.jpg" style="width: 100%">
-            </li>
-            <li class="item">
-                <img src="/img/zwy3.jpg" style="width: 100%">
-            </li>
-            <li class="item">
-                <img src="/img/zwy4.jpg" style="width: 100%">
-            </li>
-        </ul>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height: 453px">
+    <ul class="list">
+        <li class="item active">
+            <img src="/img/zwy0.jpg" style="width: 100%">
+        </li>
+        <li class="item">
+            <img src="/img/zwy1.jpg" style="width: 100%">
+        </li>
+        <li class="item">
+            <img src="/img/zwy2.jpg" style="width: 100%">
+        </li>
+        <li class="item">
+            <img src="/img/zwy3.jpg" style="width: 100%">
+        </li>
+        <li class="item">
+            <img src="/img/zwy4.jpg" style="width: 100%">
+        </li>
+    </ul>
     <ul class="pointList">
         <li class="point active" data-index='0'></li>
         <li class="point" data-index='1'></li>
@@ -39,10 +39,9 @@
         <li class="point" data-index='3'></li>
         <li class="point" data-index='4'></li>
     </ul>
-        <button type="button" class="home-btn" id="go-pre"><</button>
-        <button type="button" class="home-btn" id="go-next">></button>
+    <button type="button" class="home-btn" id="go-pre"><</button>
+    <button type="button" class="home-btn" id="go-next">></button>
 </div>
-
 <script>
     // 图片
     var items = document.getElementsByClassName('item');
@@ -51,54 +50,54 @@
     //点
     var points = document.getElementsByClassName('point');
     //定时器图片跳转时间参数
-    var time = 0 ;
+    var time = 0;
 
     var index = 0;
 
-    var  clearActive = function () {
-        for(var i = 0; i < items.length; i++){
+    var clearActive = function () {
+        for (var i = 0; i < items.length; i++) {
             items[i].className = 'item';
         }
-        for(var i = 0; i < points.length; i++){
+        for (var i = 0; i < points.length; i++) {
             points[i].className = 'point';
         }
     }
 
     var goIndex = function () {
         clearActive();
-        items[index].className ='item active';
+        items[index].className = 'item active';
         points[index].className = 'point active';
     }
 
-    var goNext = function(){
-        if(index < 4){
+    var goNext = function () {
+        if (index < 4) {
             index++;
-        }else{
+        } else {
             index = 0;
         }
         goIndex();
         time = 0;
     }
 
-    var goPre = function(){
-        if(index == 0){
+    var goPre = function () {
+        if (index == 0) {
             index = 4;
-        }else{
+        } else {
             index--;
         }
         goIndex()
         time = 0;
     }
 
-    goNextBtn.addEventListener('click',function () {
+    goNextBtn.addEventListener('click', function () {
         goNext();
     })
-    goPreBtn.addEventListener('click',function () {
+    goPreBtn.addEventListener('click', function () {
         goPre();
     })
 
-    for (var i = 0; i < points.length; i++){
-        points[i].addEventListener('click',function () {
+    for (var i = 0; i < points.length; i++) {
+        points[i].addEventListener('click', function () {
             var pointIndex = this.getAttribute('data-index');
             index = pointIndex;
             goIndex();
@@ -106,19 +105,284 @@
         })
     }
 
-//    定时器实现2s自动轮播
+    //    定时器实现2s自动轮播
     setInterval(function () {
-       time++;
-       if(time == 20){
-           goNext();
-       }
-       if(time > 20){
-           time = 0;
-           goNext();
-       }
-    },100)
+        time++;
+        if (time == 20) {
+            goNext();
+        }
+        if (time > 20) {
+            time = 0;
+            goNext();
+        }
+    }, 100)
 </script>
 <!--以上为轮播图-->
+
+<!--新闻动态-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%">
+        <h2>新闻动态/News information</h2>
+        <div class="description">一个离家最近的天然氧吧! 一处离健康最近的好地方</div>
+        <ul class="ul-css">
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news1.png" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                </a>
+            </li>
+
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news2.png" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                </a>
+            </li>
+
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news3.png" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                </a>
+            </li>
+
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news4.png" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                    <div class="clear-both"></div>
+                </a>
+            </li>
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news5.jpg" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                    <div class="clear-both"></div>
+                </a>
+            </li>
+            <li class="li-css">
+                <a href="" class="a-css">
+                    <div class="div">
+                        <img src="/img/news6.jpg" alt="开园了！成植约你不负春光！" class="img">
+                    </div>
+                    <div class="title">开园了！成植约你不负春光！</div>
+                    <div class="clear-both"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!--科普教育-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%">
+        <h2>科普教育/Popular Science Education</h2>
+        <div class="description">成都市青少年植物科普馆布展改造是成都市政府十大民生工程之一，也是成都市林业和园林管理局2017年重大工程项目。</div>
+    </div>
+    <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kpjy">
+        <li>
+            <a href="">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img">
+                        <img src="/img/kpjy1.jpg" alt="“彼岸花”红透抖音！成都这些网红开花地" class="img-size">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 imgr">
+                        <div class="s1">Time:XXXX.XX.XX</div>
+                        <div class="s2">“彼岸花”红透抖音！成都这些网红开花地</div>
+                        <div class="s3"></div>
+                        <div class="s4">MORE+</div>
+                    </div>
+                </div>
+                <div class="clear-both"></div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img">
+                        <img src="/img/kpjy2.png" alt="成都植物园参观小记" class="img-size">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 imgr">
+                        <div class="s1">Time:XXXX.XX.XX</div>
+                        <div class="s2">成都植物园参观小记</div>
+                        <div class="s3"></div>
+                        <div class="s4">MORE+</div>
+                    </div>
+                </div>
+                <div class="clear-both"></div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--园林园艺-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%">
+        <h2>园林园艺/Landscape gardening</h2>
+        <div class="description">一个离家最近的天然氧吧! 一处离健康最近的好地方</div>
+    </div>
+    <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ylyy">
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">梅花园</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">画花园</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">花花园</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">蔡徐坤</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">蔡徐坤</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">蔡徐坤</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">蔡徐坤</div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="img">
+                <img src="/img/ylyy.jpg" alt="梅花园">
+                <div class="a-text">蔡徐坤</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--游客服务-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom: 100px">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%">
+        <h2>游客服务/Tourist service</h2>
+        <div class="description">一个离家最近的天然氧吧! 一处离健康最近的好地方</div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ykfw">
+        <a href="" class="col-lg-6 col-md-12 col-sm-12 col-xs-12 img">
+            <img src="/img/zwy2.jpg" alt="" class="img-size">
+        </a>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 " style="padding: 0;height: 339px;background-color: white">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imgr">
+                乘车如何到达成都植物园
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 c">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct">
+                    <a href="" class="" onmouseover="lx()">乘车路线</a>
+                    <a href="" class="" onmouseover="tc()">停车信息</a>
+                    <a href="" class="" onmouseover="wz()">地理位置</a>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 con">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx" id="lx">
+                    <p>
+                        <span style="font-size: 18px">
+                            1、地铁3号线，植物园站；
+                        </span>
+                    </p>
+                    <p>
+                        <span style="font-size: 18px">
+                            2、公交路线：254路、143路、650路、659路、660路、X15路，植物园站。
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx-hidden" id="tc">
+                    <p>
+                        <span style="font-size: 18px">
+                            1、成都市植物园西大门停车场——97个车位
+                        </span>
+                    </p>
+                    <p>
+                        <span style="font-size: 18px">
+                            2、成都市植物园南大门停车场——238个车位
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx-hidden" id="wz">
+                    <p>
+                        <span style="font-size: 18px">
+                            1、xxxxxxxx；
+                        </span>
+                    </p>
+                    <p>
+                        <span style="font-size: 18px">
+                            2、ccccccccccccccc
+                        </span>
+                    </p>
+                </div>
+
+                <div style="padding-left: 15px">
+                    <a href="" class="btn fl">查看详情>> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var divId;
+    function lx() {
+        divId = document.getElementById('lx');
+        divId.className = 'xx';
+        divId = document.getElementById('tc');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('wz');
+        divId.className = 'xx-hidden';
+    }
+    function tc() {
+        divId = document.getElementById('tc');
+        divId.className = 'xx';
+        divId = document.getElementById('lx');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('wz');
+        divId.className = 'xx-hidden';
+    }
+    function wz() {
+        divId = document.getElementById('wz');
+        divId.className = 'xx';
+        divId = document.getElementById('tc');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('lx');
+        divId.className = 'xx-hidden';
+    }
+</script>
+
+<!--页尾-->
+<div th:insert="~{footing :: footer}"></div>
 
 </body>
 </html>
