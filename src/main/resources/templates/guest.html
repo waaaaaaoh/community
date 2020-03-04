@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>植物园主页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="css/community.css"/>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+
+<div th:insert="~{navigation :: nav}";></div>
+
+<section>
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109124113479.jpg" alt="" class="fl" style="width: 1519px">
+    <div class="clear-both"></div>
+    <div class="guest">
+            <span class="fl" style="font-size: 30px;padding: 29px">
+                游客服务/Tourist service
+            </span>
+    </div>
+</section>
+<div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 60px">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ykfw" style="padding: 0 0 0 80px">
+            <a href="" class="col-lg-6 col-md-12 col-sm-12 col-xs-12 img">
+                <img src="/img/zwy2.jpg" alt="" class="img-size">
+            </a>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 "
+                 style="padding: 0;height: 339px;background-color: white">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imgr">
+                    乘车如何到达成都植物园
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 c">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ct">
+                        <a href="" class="" onmouseover="lx()">乘车路线</a>
+                        <a href="" class="" onmouseover="tc()">停车信息</a>
+                        <a href="" class="" onmouseover="wz()">地理位置</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 con">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx" id="lx">
+                        <p>
+                        <span style="font-size: 18px">
+                            1、地铁3号线，植物园站；
+                        </span>
+                        </p>
+                        <p>
+                        <span style="font-size: 18px">
+                            2、公交路线：254路、143路、650路、659路、660路、X15路，植物园站。
+                        </span>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx-hidden" id="tc">
+                        <p>
+                        <span style="font-size: 18px">
+                            1、成都市植物园西大门停车场——97个车位
+                        </span>
+                        </p>
+                        <p>
+                        <span style="font-size: 18px">
+                            2、成都市植物园南大门停车场——238个车位
+                        </span>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xx-hidden" id="wz">
+                        <p>
+                        <span style="font-size: 18px">
+                            1、xxxxxxxx；
+                        </span>
+                        </p>
+                        <p>
+                        <span style="font-size: 18px">
+                            2、ccccccccccccccc
+                        </span>
+                        </p>
+                    </div>
+
+                    <div style="padding-left: 15px">
+                        <a href="" class="btn fl">查看详情>> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0 95px 50px 140px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
+            <ul style="list-style: none;padding: 0">
+                <li style="border-bottom: 1px solid #e5e5e5; padding-bottom: 30px">
+                    <div style="width: 100%;
+                    height: 100px;
+                    line-height: 56px;
+                    overflow: hidden;
+                    color: #333;
+                    font-size: 27px;
+                    font-weight: 700;
+                    padding: 20px 40px 0;">
+                        植物园开放时间
+                    </div>
+                    <div style="width: 100%;
+                    line-height: 2;
+                    color: #333;
+                    font-size: 20px;
+                    overflow: hidden">
+                        <p style="text-align: center;">成都市植物园开放时间</p>
+                        <p style="text-align: center;">1月1日-5月31日 7:00-19:00</p>
+                        <p style="text-align: center;">6月1日-8月31日 6:30-20:00</p>
+                        <p style="text-align: center;">9月1日-12月31日 7:00-19:00</p>
+                        <p style="text-align: center;">沙生植物馆开放时间</p>
+                        <p style="text-align: center;">全年8：30-17：00</p>
+                        <p style="text-align: center;">成都市青少年植物科普馆开放时间</p>
+                        <p style="text-align: center;">全年9：00-17：00</p>
+                        <p style="text-align: center;">（其中每周一例行闭馆检查）</p>
+                        <p style="text-align: center;">请广大游客朋友在公示的时间内入园参观</p>
+                    </div>
+                </li>
+
+                <li style="border-bottom: 1px solid #e5e5e5; padding-bottom: 30px">
+                    <div style="width: 100%;
+                    height: 100px;
+                    line-height: 56px;
+                    overflow: hidden;
+                    color: #333;
+                    font-size: 27px;
+                    font-weight: 700;
+                    padding: 20px 40px 0;">
+                        门票信息
+                    </div>
+                    <div style="width: 100%;
+                    line-height: 2;
+                    color: #333;
+                    font-size: 20px;
+                    overflow: hidden;
+                    padding-left: 40px">
+                        <p><span style="font-size: 18px; font-family: arial, helvetica, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; 门票信息：10元/人（次）。门票只限一次性使用，出园后如需再次入园，需重新购票。</span>
+                        </p>
+                        <p><span style="font-size: 18px; font-family: arial, helvetica, sans-serif;"><br></span></p>
+                        <p><span style="font-family: arial, helvetica, sans-serif; font-size: 18px; text-indent: 43px;">&nbsp; &nbsp; &nbsp; &nbsp; 门票优惠信息：</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（一）、入园门票优惠的范围和群体</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">1. 半价优惠范围和群体</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（1）青少年(儿童、学生、未成年人)：6周岁(不含6周岁)—18周岁(含18周岁)未成年人、全日制在校大学本科及以下学历学生凭本人《学生证》，享受半价（每人每次5元）；</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（2）持《港澳居民来往内地通行证》、《台湾居民来往大陆通行证》或学生证等有效证件的香港、澳门、台湾等入境游青少年，享受半价（每人每次5元）。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">2. 团体优惠范围和群体</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（1）全日制学校组织学生的集体活动入园，凭学校介绍信，享受半价（即：每人每次5元）优惠；</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（2）成人团体20人及以上享受八折优惠，每人每次8元。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">3. 《年票证》制</span></p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">《年票证》制实行实名制管理，只限本人使用。《年票证》价格：120元/人.年，全年不限次数和时间。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">（二）、入园免票优惠的范围和群体</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">1. 未成年人</span></p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">6周岁(含6周岁)以下或身高1.3米(含1.3米)以下的儿童享受门票免票。 </span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">2. 老年人</span></p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">60周岁(含60周岁)以上老年人凭本人《退（离）休证》、《老年优待证》或《居民身份证》，享受门票免票。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">3. 现役军人</span></p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">凭军队颁发的有效证件、离休干部(离休干部可免陪伴1人)和革命残疾军人凭本人有效身份证件享受门票免票。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">4. 残疾人</span></p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">凭本人《残疾证》等有效身份证件享受入园门票免票，重度残疾人的护理人1名，可享受免票入园政策。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">三、“蓉城人才绿卡”持卡人至成都市植物园售票处主动出示“蓉城人才绿卡” ，提供免票入园服务。</span>
+                        </p>
+                        <p style="text-indent:43px;line-height:40px"><span
+                                style="font-size: 18px; font-family: arial, helvetica, sans-serif;">四、根据市发改委《关于我市利用公共资源建设的旅游景区设立免费开放日和设置年度门票的通知》（成发改收费[2017]300号）文件精神，将每年7月1日设立为“成都市植物园免费开放日”。</span>
+                        </p>
+                        <p><br></p>
+                    </div>
+                </li>
+
+                <li style="border-bottom: 1px solid #e5e5e5; padding-bottom: 20px">
+                    <div style="width: 100%;
+                    height: 100px;
+                    line-height: 56px;
+                    overflow: hidden;
+                    color: #333;
+                    font-size: 27px;
+                    font-weight: 700;
+                    padding: 20px 40px 0;">
+                        入园须知
+                    </div>
+                    <div style="width: 100%;
+                    line-height: 2;
+                    color: #333;
+                    font-size: 20px;
+                    overflow: hidden;
+                    padding-left: 40px">
+                        <p style="margin-top:auto;margin-bottom: auto;text-align:center;background:white"><br></p>
+                        <table cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr class="firstRow">
+                                <td valign="top" style="padding: 0px; word-break: break-all;"><p
+                                        style="line-height: 40px;vertical-align: middle"><span
+                                        style="font-family: arial, helvetica, sans-serif; font-size: 18px;">尊敬的游客朋友：</span>
+                                </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">公园是展示城市精神文明建设的窗口，是市民休闲、娱乐、健身的公共场所，为了确保正常的游览秩序和良好的游览环境，让您的游览过程开心愉快，感谢您配合如下工作：</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">一、入园游客须知</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">1、请您自觉遵守参观游览秩序，按开放时间出入园。闭园后不得在园内逗留、露宿。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">2、请您自觉维护公共秩序。未经准许，机动车一律不得入园；禁止携带猫、狗、禽、畜入园；请勿在园内捡拾垃圾物品和行乞。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">3、请您自觉遵守法律法规。禁止在园内进行非法经营、迷信活动和低俗不健康行为；请勿在公园内兜售物品；请勿在园内散发、张贴、悬挂任何形式的广告、宣传品；严禁以任何形式进行赌博和其他非法活动。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">4、请您注意自身游览安全。不得携带危险品入园；注意公园的安全警示标志，不得进行涉水、攀爬和生火等危险性活动；</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">5、请您爱护公园花草树木。不采摘花果，攀援树木，不采挖植物，捕捉动物，不在树上拉绳挂物。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">6、请您爱护公共游览设施。不在建筑物、构筑物、设施、树木上涂写、刻划、钉钉，不在路椅上躺卧。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">7、请您爱护公园环境卫生。不随地吐痰、便溺或乱扔果皮核、烟头、口香糖残渣等废弃物。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">8、请您不要擅自圈占公共区域活动，或在活动中制造违反国家有关环境噪声排放标准的噪声影响他人。</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">二、温馨提示</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">1、注意保管好自己的随身物品，以防丢失；儿童、行动不便的老人须在家人的陪同下游园；</span>
+                                    </p>
+                                    <p style="text-indent: 48px;line-height: 40px;vertical-align: middle"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px;">2、游客服务咨询电话：028-83583439</span>
+                                    </p>
+                                    <p style="text-indent: 48px; line-height: 40px; vertical-align: middle;"><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px; text-indent: 96px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px; text-indent: 96px;">24</span><span
+                                            style="font-family: arial, helvetica, sans-serif; font-size: 18px; text-indent: 96px;">小时值班电话：028-81142110</span></strong>
+                                    </p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;">&nbsp;</span></p>
+                        <span style="font-weight: bold; font-family: arial, helvetica, sans-serif; font-size: 18px;"></span>
+                    </div>
+                </li>
+                <li style="height: 50px;"></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+<!--页尾-->
+<div th:insert="~{footing :: footer}"></div>
+
+</body>
+<script>
+    var divId;
+
+    function lx() {
+        divId = document.getElementById('lx');
+        divId.className = 'xx';
+        divId = document.getElementById('tc');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('wz');
+        divId.className = 'xx-hidden';
+    }
+
+    function tc() {
+        divId = document.getElementById('tc');
+        divId.className = 'xx';
+        divId = document.getElementById('lx');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('wz');
+        divId.className = 'xx-hidden';
+    }
+
+    function wz() {
+        divId = document.getElementById('wz');
+        divId.className = 'xx';
+        divId = document.getElementById('tc');
+        divId.className = 'xx-hidden';
+        divId = document.getElementById('lx');
+        divId.className = 'xx-hidden';
+    }
+</script>
+
+</html>
