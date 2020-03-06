@@ -472,12 +472,82 @@ body{
 
 .guest{
     position: absolute;
-    width: 1285px;
+    width: 1284.2px;
     bottom: 0;
     background-color: white;
     left: 50%;
-    margin-left: -620.5px;
+    margin-left: -620px;
     height: 100px;
     border-bottom: 1px solid #efefef;
-    top: 400px;
+    top: 393.5px;
+}
+
+.subtitle{
+    color: #fff;
+    border-right: 1px solid #fff;
+    padding: 10px 15px;
+    height: 35px;
+    line-height: 15px;
+    display: inline-block;
+    float: left;
+}
+
+.zzjg{
+    width: 100%;
+}
+
+.zzjg li{
+    width: 278px;
+    height: 174px;
+    float: left;
+}
+
+.zzjg .s1{
+    width: 270px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #e5e5e5;
+    border-left: 0;
+    border-right: 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.zzjg .s2{
+    width: 270px;
+    height: 125px;
+    line-height: 25px;
+    overflow: hidden;
+    text-align: justify;
+    color: #999;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.zwyry{
+    width: 100%;
+}
+
+.zwyry li{
+    width: 276px;
+    height: 264px;
+    float: left;
+}
+
+.zwyry .img{
+    width: 265px;
+    height: 186px;
+    border: 1px solid #efefef;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.zwyry .text{
+    width: 267px;
+    height: 48px;
+    line-height: 48px;
+    color: #333;
+    font-size: 14px;
+    display: inline-block;
+    overflow: hidden;
 }
