@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>论坛</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="css/community.css"/>
@@ -13,7 +13,7 @@
 <script type="application/javascript">
     window.onload = function () {
         var closable = window.localStorage.getItem("closable");
-        if(closable == "true"){
+        if (closable == "true") {
             window.close();
             window.localStorage.removeItem("closable");
         }
@@ -65,7 +65,8 @@
                     <!--遍历条数-->
                     <li th:each="nav:${question.navigatepageNums}">
                         <a th:href="'/?pageNum='+${nav}" th:text="${nav}" th:if="${nav != question.pageNum}"></a>
-                        <span style="font-weight: bold;background: #6faed9;" th:if="${nav == question.pageNum}" th:text="${nav}" ></span>
+                        <span style="font-weight: bold;background: #6faed9;" th:if="${nav == question.pageNum}"
+                              th:text="${nav}"></span>
                     </li>
 
                     <li class="next" th:if="${question.hasNextPage}">
@@ -78,7 +79,7 @@
                         <a th:href="'/?pageNum='+${question.pages}">尾页</a>
                     </li>
                 </ul>
-        </div>
+            </div>
         </div>
 
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
