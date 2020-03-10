@@ -1,6 +1,6 @@
 package com.community.mapper;
 
-import com.community.model.Science;
+import com.community.model.Education;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface ScienceMapper {
-    @Select("select * from science where type = #{type}")
-    List<Science> listFindByType(@Param("type") int type);
+public interface EducationMapper {
+    @Select("select * from education where type = #{type}")
+    List<Education> listFindByType(@Param("type") int type);
 }

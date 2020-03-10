@@ -688,3 +688,58 @@ body{
     text-align: center;
     padding-top: 20px;
 }
+/*科普教育*/
+.i_kpList{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.i_kpList li{
+    width: 400px;
+    height: 381px;
+    float: left;
+}
+
+.i_kpList .div{
+    width: 361px;
+    height: 361px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #efefef;
+    color: #999;
+    font-size: 14px;
+}
+
+.i_kpList .a_img{
+    width: 361px;
+    height: 271px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.i_kpList img{
+    width: 361px;
+    height: 271px;
+}
+
+.i_kpList .a_text{
+    width: 335px;
+    padding: 10px 13px 0;
+}
+
+.i_kpList .s1{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    overflow: hidden;
+    color: #333;
+    font-size: 18px;
+}
+
+.i_kpList .s2{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}

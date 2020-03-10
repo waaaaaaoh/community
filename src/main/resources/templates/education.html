@@ -18,7 +18,7 @@
     <div class="clear-both"></div>
     <div class="guest">
             <span class="fl" style="font-size: 30px;padding: 29px">
-               新闻动态/News information
+               科普教育/Popular Science Education
             </span>
         <span style="height: 35px;
                     margin-top: 25px;
@@ -26,9 +26,12 @@
                     color: #fff;
                     font-size: 14px;
                     float: right;">
-            <a href="/news/1" class="subtitle" style=" text-decoration: none;" id="1">最新公告</a>
-            <a href="/news/2" class="subtitle" style="text-decoration: none;" id="2">园内动态</a>
-            <a href="/news/3" class="subtitle" style="text-decoration: none;" id="3">党政专区</a>
+            <a href="/education/1" class="subtitle" style=" text-decoration: none;" id="1">教育项目</a>
+            <a href="/education/2" class="subtitle" style="text-decoration: none;" id="2">活动纪实</a>
+            <a href="/education/3" class="subtitle" style="text-decoration: none;" id="3">志愿者</a>
+            <a href="/education/4" class="subtitle" style=" text-decoration: none;" id="4">活动招募</a>
+            <a href="/education/5" class="subtitle" style="text-decoration: none;" id="5">大话植物</a>
+            <a href="/education/6" class="subtitle" style="text-decoration: none;" id="6">科普馆</a>
             <a href="#" class="subtitle" style="background-color: white"></a>
         </span>
     </div>
@@ -49,6 +52,7 @@
             color: black;
         }
     </style>
+
 </section>
 <div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0 95px 50px 140px;">
@@ -67,51 +71,60 @@
                 <span style="color: #666;
                              font-size: 14px;
                              float: right;">
-                    当前位置:新闻动态>
-                    <a th:href="@{'/news/'+${type}}" style="color: #666;text-decoration: none;" th:text="${title}"></a>
+                    当前位置:科普教育>
+                    <a th:href="@{'/education/'+${type}}" style="color: #666;text-decoration: none;" th:text="${title}"></a>
                 </span>
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%;padding: 35px 0 0 0">
-                <ul class="ul-css" style="padding-left: 12px">
-                    <li class="li-css" style="width: 400px"  th:each="news : ${news.list}">
-                        <a href="" class="a-css">
-                            <div class="div">
-                                <img th:src="${news.coverImg}" th:alt="${news.title}" class="img">
+
+                <ul class="i_kpList fl" style="list-style-type: none">
+                    <li th:each="news : ${news.list}">
+                        <a href="" class="div">
+                            <div class="a_img fl Amplification">
+                                <img th:src="${news.coverImg}" th:alt="${news.title}">
                             </div>
-                            <div class="title" th:text="${news.title}"></div>
+                            <div class="a_text fl">
+                                <div class="fl s1" th:text="${news.title}"></div>
+                                <div class="fl s2">TIM:
+                                <span th:text="${#dates.format(news.getGmtCreate(),'yyyy-MM-dd')}"></span>
+                                </div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="clearboth"></div>
                         </a>
                     </li>
                 </ul>
+
             </div>
             <!--分页-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${news.pages != 1}">
                 <ul class="pagination pull-right no-margin">
                     <li th:if="${news.hasPreviousPage}">
-                        <a th:href="@{'/news/'+${type}(pageNum=1)}">
+                        <a th:href="@{'/education/'+${type}(pageNum=1)}">
                             首页</a>
                     </li>
 
                     <li class="prev" th:if="${news.hasPreviousPage}">
-                        <a th:href="@{'/news/'+${type}(pageNum=${news.prePage})}">
+                        <a th:href="@{'/education/'+${type}(pageNum=${news.prePage})}">
                             <i class="ace-icon fa fa-angle-double-left">pre</i>
                         </a>
                     </li>
                     <!--遍历条数-->
                     <li th:each="nav:${news.navigatepageNums}">
-                        <a th:href="@{'/news/'+${type}(pageNum=${nav})}" th:text="${nav}" th:if="${nav != news.pageNum}"></a>
+                        <a th:href="@{'/education/'+${type}(pageNum=${nav})}" th:text="${nav}" th:if="${nav != news.pageNum}"></a>
                         <span style="font-weight: bold;background: #6faed9;" th:if="${nav == news.pageNum}"
                               th:text="${nav}"></span>
                     </li>
 
                     <li class="next" th:if="${news.hasNextPage}">
-                        <a th:href="@{'/news/'+${type}(pageNum=${news.nextPage})}">
+                        <a th:href="@{'/education/'+${type}(pageNum=${news.nextPage})}">
                             <i class="ace-icon fa fa-angle-double-right">next</i>
                         </a>
                     </li>
 
                     <li>
-                        <a th:href="@{'/news/'+${type}(pageNum=${news.pages})}">尾页</a>
+                        <a th:href="@{'/education/'+${type}(pageNum=${news.pages})}">尾页</a>
                     </li>
                 </ul>
             </div>
