@@ -2,6 +2,7 @@ package com.community.service;
 
 import com.community.mapper.EducationMapper;
 import com.community.model.Education;
+import com.community.model.News;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class EducationService {
         List<Education> list = educationMapper.listFindByType(type);
         PageInfo<Education> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+
+    public void create(News news) {
+        educationMapper.create(news);
     }
 }

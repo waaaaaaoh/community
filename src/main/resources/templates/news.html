@@ -14,7 +14,7 @@
 <div th:insert="~{navigation :: nav}" ;></div>
 
 <section>
-    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109124113479.jpg" alt="" class="fl" style="width: 1519px">
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109112233780.jpg" alt="" class="fl" style="width: 1519px">
     <div class="clear-both"></div>
     <div class="guest">
             <span class="fl" style="font-size: 30px;padding: 29px">
@@ -75,7 +75,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%;padding: 35px 0 0 0">
                 <ul class="ul-css" style="padding-left: 12px">
                     <li class="li-css" style="width: 400px"  th:each="news : ${news.list}">
-                        <a href="" class="a-css">
+                        <a th:href="@{'/show/'+${news.id}(type=${type},contentType=1)}" class="a-css">
                             <div class="div">
                                 <img th:src="${news.coverImg}" th:alt="${news.title}" class="img">
                             </div>

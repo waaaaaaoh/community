@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${show.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/community.css"/>
+    <link rel="stylesheet" href="css/editormd.preview.min.css" />
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
+    <script src="/js/lib/marked.min.js" type="application/javascript"></script>
+    <script src="/js/lib/prettify.min.js" type="application/javascript"></script>
+
+</head>
+<body>
+
+<div th:insert="~{navigation :: nav}" ;></div>
+
+<section>
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109112233780.jpg" alt="" class="fl" style="width: 1519px">
+    <div class="clear-both"></div>
+    <div class="guest">
+            <span class="fl" style="font-size: 30px;padding: 29px" th:text="${tag}">
+            </span>
+        <!--新闻动态-->
+        <span style="height: 35px;
+                    margin-top: 25px;
+                    background-color: #000;
+                    color: #fff;
+                    font-size: 14px;
+                    float: right;" th:if="${contentType} == 1">
+            <a href="/news/1" class="subtitle" style=" text-decoration: none;" id="zxgg">最新公告</a>
+            <a href="/news/2" class="subtitle" style="text-decoration: none;" id="yndt">园内动态</a>
+            <a href="/news/3" class="subtitle" style="text-decoration: none;" id="dzzq">党政专区</a>
+            <a href="#" class="subtitle" style="background-color: white"></a>
+        </span>
+        <!--科学研究-->
+        <span style="height: 35px;
+                    margin-top: 25px;
+                    background-color: #000;
+                    color: #fff;
+                    font-size: 14px;
+                    float: right;" th:if="${contentType} == 2">
+            <a href="/science/1" class="subtitle" style=" text-decoration: none;" id="fryj">芙蓉研究</a>
+            <a href="/science/2" class="subtitle" style="text-decoration: none;" id="zzzy">种质资源</a>
+            <a href="/science/3" class="subtitle" style="text-decoration: none;" id="hzjl">合作交流</a>
+            <a href="/science/4" class="subtitle" style="text-decoration: none;" id="ycbg">园林有害生物预测报告</a>
+            <a href="#" class="subtitle" style="background-color: white"></a>
+        </span>
+        <!--科普教育-->
+        <span style="height: 35px;
+                    margin-top: 25px;
+                    background-color: #000;
+                    color: #fff;
+                    font-size: 14px;
+                    float: right;" th:if="${contentType} == 3">
+            <a href="/education/1" class="subtitle" style=" text-decoration: none;" id="jyxm">教育项目</a>
+            <a href="/education/2" class="subtitle" style="text-decoration: none;" id="hdjs">活动纪实</a>
+            <a href="/education/3" class="subtitle" style="text-decoration: none;" id="zyz">志愿者</a>
+            <a href="/education/4" class="subtitle" style=" text-decoration: none;" id="hdzm">活动招募</a>
+            <a href="/education/5" class="subtitle" style="text-decoration: none;" id="dhzw">大话植物</a>
+            <a href="/education/6" class="subtitle" style="text-decoration: none;" id="kpg">科普馆</a>
+            <a href="#" class="subtitle" style="background-color: white"></a>
+        </span>
+        <!--园林园艺-->
+        <span style="height: 35px;
+                    margin-top: 25px;
+                    background-color: #000;
+                    color: #fff;
+                    font-size: 14px;
+                    float: right;" th:if="${contentType} == 4">
+            <a href="/garden/1" class="subtitle" style=" text-decoration: none;" id="sjly">四季览园</a>
+            <a href="/garden/2" class="subtitle" style="text-decoration: none;" id="zly">专类园</a>
+            <a href="/garden/3" class="subtitle" style="text-decoration: none;" id="zthz">主题花展</a>
+            <a href="/garden/4" class="subtitle" style="text-decoration: none;" id="ghzn">观花指南</a>
+            <a href="#" class="subtitle" style="background-color: white"></a>
+        </span>
+    </div>
+    <!--使当前页常亮-->
+    <script th:inline="javascript">
+        var aDiv;
+        var type = [[${flag}]];
+        aDiv = document.getElementById(type);
+        aDiv.className = 'subtitle active';
+    </script>
+    <style>
+        .guest .active {
+            background-color: #f8b632;
+            color: black;
+        }
+
+        .guest a:hover {
+            background-color: #f8b632;
+            color: black;
+        }
+    </style>
+</section>
+<div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0 95px 50px 140px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
+            <div style="width: 100%;
+                        height: 60px;
+                        line-height: 58px;
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        padding: 15px 40px 0;">
+                <span style="font-weight: 700;
+                             color: #333;
+                             font-size: 24px;" th:text="${title}">
+                    </span>
+
+                <!--需要改动！！！！！！！！ -->
+
+
+                <span style="color: #666;
+                             font-size: 14px;
+                             float: right;">
+                    当前位置:
+                   <a th:href="@{'/'+${href}+'/'+${type}}" style="color: #666;text-decoration: none;" th:text="${tag1}"></a>
+                    >
+                    <a th:href="@{'/'+${href}+'/'+${type}}" style="color: #666;text-decoration: none;" th:text="${title}"></a>
+                </span>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 news" style="width: 100%;padding: 35px 0 0 0">
+
+                <div class="a_newsdetails">
+                    <div class="a_details_t" th:text="${show.title}"></div>
+                    <div class="a_details_t1">
+                        添加时间：<span th:text="${#dates.format(show.getGmtCreate(),'yyyy-MM-dd')}"></span>
+                        浏览次数：<span id="hits" th:text="${show.viewCount}"></span>
+                    </div>
+
+                    <div class="a_details_c" id="article-view" style="text-align: center">
+                            <textarea style="display:none;" th:text="${show.content}"></textarea>
+                    </div>
+                    <script type="text/javascript">
+                        $(function() {
+                            var testView = editormd.markdownToHTML("article-view", {
+                            });
+                        });
+                    </script>
+
+
+                    <div class="a_details_b">
+                        <a href="/show-66-264-1.html" class="fl">上一篇：抓好疫情防控，有序复工</a>
+                        <a href="/show-66-268-1.html" class="fr">下一篇：云游成植~云观鸟之为蜜痴狂</a>
+                        <div class="clear-both"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!--页尾-->
+<div th:insert="~{footing :: footer}"></div>
+
+</body>
+
+</html>

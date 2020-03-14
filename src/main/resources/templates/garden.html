@@ -14,7 +14,7 @@
 <div th:insert="~{navigation :: nav}" ;></div>
 
 <section>
-    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109124113479.jpg" alt="" class="fl" style="width: 1519px">
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109020227742.jpg" alt="" class="fl" style="width: 1519px">
     <div class="clear-both"></div>
     <div class="guest">
             <span class="fl" style="font-size: 30px;padding: 29px">
@@ -113,7 +113,7 @@
                     <span th:text="${title}" style="color: black"></span><span th:text="${titleEn}"></span></div>
                 <ul class="ylyy_c1 fl" style="list-style-type: none">
                     <li th:each="news : ${news.list}">
-                        <a href="" class="a_img Amplification">
+                        <a th:href="@{'/show/'+${news.id}(type=${type},contentType=4)}" class="a_img Amplification">
                             <img th:src="${news.coverImg}" th:alt="${news.title}">
                             <div class="a_text" th:text="${news.title}"></div>
                         </a>

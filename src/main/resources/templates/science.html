@@ -14,7 +14,7 @@
 <div th:insert="~{navigation :: nav}" ;></div>
 
 <section>
-    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109124113479.jpg" alt="" class="fl" style="width: 1519px">
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109114200727.jpg" alt="" class="fl" style="width: 1519px">
     <div class="clear-both"></div>
     <div class="guest">
             <span class="fl" style="font-size: 30px;padding: 29px">
@@ -79,7 +79,7 @@
                     overflow: hidden">
                 <ul class="kxyj fl" style="list-style-type: none">
                     <li th:each="article : ${articles.list}">
-                        <a href="" class="fl s1" th:text="${article.title}"></a>
+                        <a th:href="@{'/show/'+${article.id}(type=${type},contentType=2)}" class="fl s1" th:text="${article.title}"></a>
                         <div class="fl s2" th:text="${article.description}"></div>
                         <a href="" class="fl s3">查看详情+</a>
                         <div class="clear-both"></div>

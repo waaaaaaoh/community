@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>园内文章发布</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/community.css"/>
+    <link rel="stylesheet" href="css/editormd.min.css" />
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
+
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2>发布文章</h2>
+            <hr>
+            <h5>选择分区</h5>
+            <select name="" id="typeselect" onchange="test()" class="form-control">
+                <option value="1">新闻动态</option>
+                <option value="2">科学研究</option>
+                <option value="3">科普教育</option>
+                <option value="4">园林园艺</option>
+            </select>
+            <h5>选择分类</h5>
+            <div style="height: 40px;">
+                <select name="" id="xwdt" onchange="test1()" class="form-control unhidden">
+                    <option value="1">最新公告</option>
+                    <option value="2">园内动态</option>
+                    <option value="3">党政建设</option>
+                </select>
+                <select name="" id="kxyj" onchange="test2()" class="form-control hidden">
+                    <option value="1">芙蓉研究</option>
+                    <option value="2">种质资源</option>
+                    <option value="3">合作交流</option>
+                    <option value="4">园林有害生物预测报告</option>
+                </select>
+                <select name="" id="kpjy" onchange="test3()" class="form-control hidden">
+                    <option value="1">教育项目</option>
+                    <option value="2">活动纪实</option>
+                    <option value="3">志愿者</option>
+                    <option value="4">活动招募</option>
+                    <option value="5">大话植物</option>
+                    <option value="6">科普馆</option>
+                </select>
+                <select name="" id="ylyy" onchange="test4()" class="form-control hidden">
+                    <option value="1">四季览园</option>
+                    <option value="2">专类园</option>
+                    <option value="3">主题花展</option>
+                    <option value="4">观花指南</option>
+                    <option value="5">四季览园·春</option>
+                    <option value="6">四季览园·夏</option>
+                    <option value="7">四季览园·秋</option>
+                    <option value="8">四季览园·冬</option>
+                </select>
+            </div>
+
+            <script>
+                var contenttype = 1;
+                var type = 1;
+                function test() {
+                    contenttype = $("#typeselect option:selected").val();
+                    if (contenttype == 1){
+                        document.getElementById("xwdt").className = "form-control unhidden";
+                        document.getElementById("kxyj").className = "form-control hidden";
+                        document.getElementById("kpjy").className = "form-control hidden";
+                        document.getElementById("ylyy").className = "form-control hidden";
+                    }else if (contenttype == 2){
+                        document.getElementById("xwdt").className = "form-control hidden";
+                        document.getElementById("kxyj").className = "form-control unhidden";
+                        document.getElementById("kpjy").className = "form-control hidden";
+                        document.getElementById("ylyy").className = "form-control hidden";
+                    }else if (contenttype == 3){
+                        document.getElementById("xwdt").className = "form-control hidden";
+                        document.getElementById("kxyj").className = "form-control hidden";
+                        document.getElementById("kpjy").className = "form-control unhidden";
+                        document.getElementById("ylyy").className = "form-control hidden";
+                    } else if(contenttype == 4){
+                        document.getElementById("xwdt").className = "form-control hidden";
+                        document.getElementById("kxyj").className = "form-control hidden";
+                        document.getElementById("kpjy").className = "form-control hidden";
+                        document.getElementById("ylyy").className = "form-control unhidden";
+                    }
+                }
+
+                function test1() {
+                    type = $("#xwdt option:selected").val();
+                }
+                function test2() {
+                    type = $("#kxyj option:selected").val();
+                }
+                function test3() {
+                    type = $("#kpjy option:selected").val();
+                }
+                function test4() {
+                    type = $("#ylyy option:selected").val();
+                }
+
+                function out() {
+                    console.log(contenttype);
+                    console.log(type);
+                    $("#contenttype").val(contenttype);
+                    $("#type").val(type);
+                }
+
+            </script>
+
+
+            <form action="/article" method="post">
+                <input type="hidden"  name="contenttype" id="contenttype"/>
+                <input type="hidden"  name="type" id="type"/>
+                <input type="hidden" name="id">
+                <div class="form-group">
+                    <label for="title">输入标题</label>
+                    <input type="text" class="form-control" id="title"  name="title" placeholder="文章标题....">
+                </div>
+                <div class="form-group">
+                    <label for="InputFile">封面图片</label>
+                    <input type="file" id="InputFile">
+                </div>
+
+                <div class="form-group">
+                    <label for="introduction">简介</label>
+                    <input type="text" class="form-control" id="introduction"  name="introduction" placeholder="仅在科学研究板块需要输入简介">
+                </div>
+
+                <div class="form-group" id="article-editor">
+                    <label for="description">问题内容（必填）</label>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10" style="display: none"></textarea>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        var editor = editormd("article-editor", {
+                             width  : "100%",
+                            height : "350px",
+                            path   : "/js/lib/",
+                            delay :0,
+                            watch:false,
+                            placeholder:"请输入文章内容",
+                            imageUpload    : true,
+                            imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                            imageUploadURL : "/file/upload",
+                        });
+                    });
+                </script>
+
+                <div class="container-fluid main">
+                    <div class="row">
+                        <div class=" col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish" id="submit" onclick="out()">发布</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>123</h3>
+            ·123123<br>
+            ·123123<br>
+            ·123123<br>
+            ·123123<br>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{footing :: footer}"></div>
+</body>
+</html>

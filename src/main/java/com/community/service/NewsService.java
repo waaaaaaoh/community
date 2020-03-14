@@ -20,4 +20,8 @@ public class NewsService {
         PageInfo<News> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+
+    public void create(News news) {
+        newsMapper.create(news);
+    }
 }

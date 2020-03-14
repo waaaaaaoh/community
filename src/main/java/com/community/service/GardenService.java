@@ -27,4 +27,8 @@ public class GardenService {
         PageInfo<Garden> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+
+    public void create(Garden garden) {
+        gardenMapper.create(garden);
+    }
 }

@@ -14,7 +14,7 @@
 <div th:insert="~{navigation :: nav}" ;></div>
 
 <section>
-    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109124113479.jpg" alt="" class="fl" style="width: 1519px">
+    <img src="http://www.cdszwy.com/uploadfile/2019/0109/20190109115943940.jpg" alt="" class="fl" style="width: 1519px">
     <div class="clear-both"></div>
     <div class="guest">
             <span class="fl" style="font-size: 30px;padding: 29px">
@@ -80,7 +80,7 @@
 
                 <ul class="i_kpList fl" style="list-style-type: none">
                     <li th:each="news : ${news.list}">
-                        <a href="" class="div">
+                        <a th:href="@{'/show/'+${news.id}(type=${type},contentType=3)}" class="div">
                             <div class="a_img fl Amplification">
                                 <img th:src="${news.coverImg}" th:alt="${news.title}">
                             </div>

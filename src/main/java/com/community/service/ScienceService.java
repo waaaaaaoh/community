@@ -1,6 +1,7 @@
 package com.community.service;
 
 import com.community.mapper.ScienceMapper;
+import com.community.model.News;
 import com.community.model.Science;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -19,5 +20,9 @@ public class ScienceService {
         List<Science> list = scienceMapper.listFindByType(type);
         PageInfo<Science> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+
+    public void create(Science science) {
+        scienceMapper.create(science);
     }
 }
