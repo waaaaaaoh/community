@@ -24,4 +24,9 @@ public class NewsService {
     public void create(News news) {
         newsMapper.create(news);
     }
+
+    public List<News> homepage() {
+        List<News> news = newsMapper.homepage();
+        return news;
+    }
 }

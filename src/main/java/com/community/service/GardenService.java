@@ -31,4 +31,9 @@ public class GardenService {
     public void create(Garden garden) {
         gardenMapper.create(garden);
     }
+
+    public List<Garden> homepage() {
+        List<Garden> gardens = gardenMapper.homepage();
+        return  gardens;
+    }
 }

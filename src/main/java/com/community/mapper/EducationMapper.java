@@ -19,4 +19,7 @@ public interface EducationMapper {
 
     @Insert("insert into education (title,cover_img,content,gmt_create,type) values (#{title},#{coverImg},#{content},#{gmtCreate},#{type})")
     void create(News news);
+
+    @Select("select * from education  order by id desc limit 2;")
+    List<Education> homepage();
 }

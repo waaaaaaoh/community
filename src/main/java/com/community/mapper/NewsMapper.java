@@ -18,4 +18,7 @@ public interface NewsMapper {
 
     @Insert("insert into news (title,cover_img,content,gmt_create,type) values (#{title},#{coverImg},#{content},#{gmtCreate},#{type})")
     void create(News news);
+
+    @Select("select * from news  order by id desc limit 6;")
+    List<News> homepage();
 }

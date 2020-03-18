@@ -126,58 +126,12 @@
         <h2>新闻动态/News information</h2>
         <div class="description">一个离家最近的天然氧吧! 一处离健康最近的好地方</div>
         <ul class="ul-css">
-            <li class="li-css">
-                <a href="" class="a-css">
+            <li class="li-css" th:each="news : ${news}">
+                <a th:href="@{'/show/'+${news.id}(type=${type},contentType=1)}" class="a-css">
                     <div class="div">
-                        <img src="/img/news1.png" alt="开园了！成植约你不负春光！" class="img">
+                        <img th:src="${news.coverImg}" th:alt="${news.title}" class="img">
                     </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                </a>
-            </li>
-
-            <li class="li-css">
-                <a href="" class="a-css">
-                    <div class="div">
-                        <img src="/img/news2.png" alt="开园了！成植约你不负春光！" class="img">
-                    </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                </a>
-            </li>
-
-            <li class="li-css">
-                <a href="" class="a-css">
-                    <div class="div">
-                        <img src="/img/news3.png" alt="开园了！成植约你不负春光！" class="img">
-                    </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                </a>
-            </li>
-
-            <li class="li-css">
-                <a href="" class="a-css">
-                    <div class="div">
-                        <img src="/img/news4.png" alt="开园了！成植约你不负春光！" class="img">
-                    </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                    <div class="clear-both"></div>
-                </a>
-            </li>
-            <li class="li-css">
-                <a href="" class="a-css">
-                    <div class="div">
-                        <img src="/img/news5.jpg" alt="开园了！成植约你不负春光！" class="img">
-                    </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                    <div class="clear-both"></div>
-                </a>
-            </li>
-            <li class="li-css">
-                <a href="" class="a-css">
-                    <div class="div">
-                        <img src="/img/news6.jpg" alt="开园了！成植约你不负春光！" class="img">
-                    </div>
-                    <div class="title">开园了！成植约你不负春光！</div>
-                    <div class="clear-both"></div>
+                    <div class="title" th:text="${news.title}"></div>
                 </a>
             </li>
         </ul>
@@ -192,31 +146,16 @@
         <div class="description">成都市青少年植物科普馆布展改造是成都市政府十大民生工程之一，也是成都市林业和园林管理局2017年重大工程项目。</div>
     </div>
     <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kpjy">
-        <li>
-            <a href="">
+        <li th:each="news : ${educations}">
+            <a th:href="@{'/show/'+${news.id}(type=${type},contentType=3)}">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img">
-                        <img src="/img/kpjy1.jpg" alt="“彼岸花”红透抖音！成都这些网红开花地" class="img-size">
+                        <img th:src="${news.coverImg}" th:alt="${news.title}" class="img-size">
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 imgr">
-                        <div class="s1">Time:XXXX.XX.XX</div>
-                        <div class="s2">“彼岸花”红透抖音！成都这些网红开花地</div>
-                        <div class="s3"></div>
-                        <div class="s4">MORE+</div>
-                    </div>
-                </div>
-                <div class="clear-both"></div>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img">
-                        <img src="/img/kpjy2.png" alt="成都植物园参观小记" class="img-size">
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 imgr">
-                        <div class="s1">Time:XXXX.XX.XX</div>
-                        <div class="s2">成都植物园参观小记</div>
+                        <div class="s1" >time:
+                            <span th:text="${#dates.format(news.getGmtCreate(),'yyyy-MM-dd')}"></span></div>
+                        <div class="s2" th:text="${news.title}"></div>
                         <div class="s3"></div>
                         <div class="s4">MORE+</div>
                     </div>
@@ -234,52 +173,10 @@
         <div class="description">一个离家最近的天然氧吧! 一处离健康最近的好地方</div>
     </div>
     <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ylyy">
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">梅花园</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">画花园</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">花花园</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">蔡徐坤</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">蔡徐坤</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">蔡徐坤</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">蔡徐坤</div>
-            </a>
-        </li>
-        <li>
-            <a href="" class="img">
-                <img src="/img/ylyy.jpg" alt="梅花园">
-                <div class="a-text">蔡徐坤</div>
+        <li th:each="news : ${gardens}">
+            <a th:href="@{'/show/'+${news.id}(type=${type},contentType=4)}" class="img">
+                <img th:src="${news.coverImg}" th:alt="${news.title}">
+                <div class="a-text" th:text="${news.title}"></div>
             </a>
         </li>
     </ul>

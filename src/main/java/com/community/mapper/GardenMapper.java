@@ -21,4 +21,7 @@ public interface GardenMapper {
 
     @Insert("insert into garden (title,cover_img,content,gmt_create,type,content_type) values (#{title},#{coverImg},#{content},#{gmtCreate},#{type},#{contentType})")
     void create(Garden garden);
+
+    @Select("select * from garden order by id desc limit 8;")
+    List<Garden> homepage();
 }

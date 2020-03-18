@@ -1,5 +1,7 @@
 package com.community.controller;
 
+import com.community.Provider.UCloudProvider;
+import com.community.dto.FileDTO;
 import com.community.dto.QuestionDTO;
 import com.community.mapper.QuestionMapper;
 import com.community.model.*;
@@ -7,13 +9,13 @@ import com.community.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 
 @Controller
 public class PublishController {
@@ -33,6 +35,9 @@ public class PublishController {
 
     @Autowired
     private GardenService gardenService;
+
+    @Autowired
+    private UCloudProvider uCloudProvider;
 
     //    论坛文章发布
     @GetMapping("/publish/{id}")
@@ -107,6 +112,7 @@ public class PublishController {
     public String doArticle(@RequestParam("contenttype") Integer contenttype,
                             @RequestParam("type") Integer type,
                             @RequestParam("title") String title,
+                            @RequestParam("InputFile") MultipartFile file,
                             @RequestParam("description") String description,
                             @RequestParam("introduction") String introduction,
                             HttpServletRequest request,
@@ -116,6 +122,14 @@ public class PublishController {
         News news = null;
         Garden garden = null;
         Science science =null;
+        String url = new String();
+
+        try {
+            url = uCloudProvider.upload(file.getInputStream(),file.getContentType(),file.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         if (contenttype != 4) {
             if(contenttype != 2){
                 news = new News();
@@ -123,7 +137,7 @@ public class PublishController {
                 news.setContent(description);
                 news.setGmtCreate(System.currentTimeMillis());
                 news.setType(type);
-                news.setCoverImg("http://www.cdszwy.com/uploadfile/2020/0301/20200301124546302.png");
+                news.setCoverImg(url);
             }else {
                 science = new Science();
                 science.setTitle(title);
@@ -137,17 +151,17 @@ public class PublishController {
             garden = new Garden();
             if (type <= 4) {
                 garden.setTitle(title);
-                garden.setContent(description);
                 garden.setGmtCreate(System.currentTimeMillis());
+                garden.setContent(description);
                 garden.setType(type);
-                garden.setCoverImg("http://www.cdszwy.com/uploadfile/2019/0326/20190326040431452.jpg");
+                garden.setCoverImg(url);
             } else {
                 garden.setTitle(title);
                 garden.setContent(description);
                 garden.setGmtCreate(System.currentTimeMillis());
                 garden.setType(1);
                 garden.setContentType(type - 4);
-                garden.setCoverImg("http://www.cdszwy.com/uploadfile/2019/0326/20190326040431452.jpg");
+                garden.setCoverImg(url);
             }
         }
         switch (contenttype) {
