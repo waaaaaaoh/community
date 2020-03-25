@@ -114,20 +114,21 @@ public class PublishController {
                             @RequestParam("title") String title,
                             @RequestParam("InputFile") MultipartFile file,
                             @RequestParam("description") String description,
-                            @RequestParam("introduction") String introduction,
-                            HttpServletRequest request,
-                            Model model) {
-        System.out.println("contenttype:" + contenttype);
-        System.out.println("type" + type);
+                            @RequestParam("introduction") String introduction
+                            ) {
+
+
         News news = null;
         Garden garden = null;
         Science science =null;
         String url = new String();
 
-        try {
-            url = uCloudProvider.upload(file.getInputStream(),file.getContentType(),file.getOriginalFilename());
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!file.isEmpty()){
+            try {
+                url = uCloudProvider.upload(file.getInputStream(),file.getContentType(),file.getOriginalFilename());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         if (contenttype != 4) {
@@ -180,7 +181,7 @@ public class PublishController {
             default:
         }
 
-        return "article";
+        return "redirect:/home";
     }
 
 

@@ -9,4 +9,5 @@ public class Show {
     private Long gmtCreate;
     private Integer viewCount;
     private String content;
+    private Integer type;
 }

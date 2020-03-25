@@ -2,6 +2,7 @@ package com.community.mapper;
 
 import com.community.model.News;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -21,4 +22,13 @@ public interface NewsMapper {
 
     @Select("select * from news  order by id desc limit 6;")
     List<News> homepage();
+
+    @Select("select * from news where id in ( select max(id) from news where id < #{id} and type = #{type})")
+    News findpre(Long id, Integer type);
+
+    @Select("select * from news where id in ( select min(id) from news where id > #{id} and type = #{type})")
+    News findnext(Long id, Integer type);
+
+    @Update("update news set title = #{title},cover_img = #{coverImg},content = #{content} where id = #{id}")
+    void update(News news);
 }

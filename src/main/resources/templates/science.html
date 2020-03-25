@@ -81,7 +81,7 @@
                     <li th:each="article : ${articles.list}">
                         <a th:href="@{'/show/'+${article.id}(type=${type},contentType=2)}" class="fl s1" th:text="${article.title}"></a>
                         <div class="fl s2" th:text="${article.description}"></div>
-                        <a href="" class="fl s3">查看详情+</a>
+                        <a th:href="@{'/show/'+${article.id}(type=${type},contentType=2)}" class="fl s3">查看详情+</a>
                         <div class="clear-both"></div>
                     </li>
                 </ul>

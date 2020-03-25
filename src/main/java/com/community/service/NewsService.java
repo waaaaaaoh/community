@@ -29,4 +29,13 @@ public class NewsService {
         List<News> news = newsMapper.homepage();
         return news;
     }
+
+    public News findbyId(Long id) {
+        News news = newsMapper.findById(id);
+        return news;
+    }
+
+    public void update(News news) {
+        newsMapper.update(news);
+    }
 }

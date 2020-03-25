@@ -32,4 +32,13 @@ public class EducationService {
         List<Education> educations = educationMapper.homepage();
         return  educations;
     }
+
+    public News findById(Long id) {
+        News news = educationMapper.findById(id);
+        return news;
+    }
+
+    public void update(News news) {
+        educationMapper.update(news);
+    }
 }

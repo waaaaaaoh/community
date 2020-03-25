@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>园内文章更新</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/community.css"/>
+    <link rel="stylesheet" href="css/editormd.min.css" />
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
+
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2>更新文章</h2>
+            <hr>
+
+
+
+            <form action="/update" method="post" enctype="multipart/form-data">
+                <input type="hidden"  name="contenttype" id="contenttype" th:value="${contenttype}"/>
+                <input type="hidden" name="id" th:value="${id}">
+                <input type="hidden" name="url" th:value="${url}">
+                <div class="form-group">
+                    <label for="title">输入标题</label>
+                    <input type="text" class="form-control" id="title" th:value="${title}"  name="title" placeholder="文章标题....">
+                </div>
+                <div class="form-group">
+                    <label for="InputFile">封面图片</label>
+                    <input type="file" id="InputFile" name="InputFile">
+                </div>
+
+                <div class="form-group">
+                    <label for="introduction">简介</label>
+                    <input type="text" class="form-control" id="introduction" th:value="${description}"  name="introduction" placeholder="仅在科学研究板块需要输入简介">
+                </div>
+
+                <div class="form-group" id="article-editor">
+                    <label for="description">问题内容（必填）</label>
+                    <textarea class="form-control" name="description" id="description" th:text="${content}" cols="30" rows="10" style="display: none"></textarea>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        var editor = editormd("article-editor", {
+                             width  : "100%",
+                            height : "350px",
+                            path   : "/js/lib/",
+                            delay :0,
+                            watch:false,
+                            placeholder:"请输入文章内容",
+                            imageUpload    : true,
+                            imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                            imageUploadURL : "/file/upload",
+                        });
+                    });
+                </script>
+
+                <div class="container-fluid main">
+                    <div class="row">
+                        <div class=" col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish" id="submit" onclick="out()">发布</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>123</h3>
+            ·123123<br>
+            ·123123<br>
+            ·123123<br>
+            ·123123<br>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{footing :: footer}"></div>
+</body>
+</html>

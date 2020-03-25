@@ -36,4 +36,13 @@ public class GardenService {
         List<Garden> gardens = gardenMapper.homepage();
         return  gardens;
     }
+
+    public Garden findById(Long id) {
+        Garden garden = gardenMapper.findById(id);
+        return garden;
+    }
+
+    public void update(Garden garden) {
+        gardenMapper.update(garden);
+    }
 }

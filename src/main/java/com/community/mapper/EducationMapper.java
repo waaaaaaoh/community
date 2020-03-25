@@ -22,4 +22,13 @@ public interface EducationMapper {
 
     @Select("select * from education  order by id desc limit 2;")
     List<Education> homepage();
+
+    @Select("select * from education where id in ( select max(id) from news where id < #{id} and type = #{type})")
+    News findpre(Long id, Integer type);
+
+    @Select("select * from education where id in ( select min(id) from news where id > #{id} and type = #{type})")
+    News findnext(Long id, Integer type);
+
+    @Update("update education set title = #{title},cover_img = #{coverImg},content = #{content} where id = #{id}")
+    void update(News news);
 }

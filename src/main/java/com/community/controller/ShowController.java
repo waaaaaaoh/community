@@ -142,9 +142,13 @@ public class ShowController {
 
 //        获取内容
         Show show = showService.findByContentTypeAndId(id,contentType);
+        Show pre = showService.findpre(id,contentType,show.getType());
+        Show next = showService.findnext(id,contentType,show.getType());
 
 
         model.addAttribute("show", show);
+        model.addAttribute("showpre", pre);
+        model.addAttribute("shownext", next);
         model.addAttribute("type", type);
         model.addAttribute("contentType",contentType);
         model.addAttribute("flag",flag);
@@ -152,6 +156,7 @@ public class ShowController {
         model.addAttribute("tag",tag);
         model.addAttribute("tag1",tag1);
         model.addAttribute("href",href);
+        model.addAttribute("id",id);
 
         return "show";
     }

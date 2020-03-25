@@ -25,4 +25,13 @@ public class ScienceService {
     public void create(Science science) {
         scienceMapper.create(science);
     }
+
+    public Science findById(Long id) {
+        Science science = scienceMapper.findbyId(id);
+        return science;
+    }
+
+    public void update(Science science) {
+        scienceMapper.update(science);
+    }
 }

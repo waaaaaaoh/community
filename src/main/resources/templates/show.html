@@ -112,8 +112,6 @@
                              font-size: 24px;" th:text="${title}">
                     </span>
 
-                <!--需要改动！！！！！！！！ -->
-
 
                 <span style="color: #666;
                              font-size: 14px;
@@ -133,6 +131,9 @@
                         添加时间：<span th:text="${#dates.format(show.getGmtCreate(),'yyyy-MM-dd')}"></span>
                         浏览次数：<span id="hits" th:text="${show.viewCount}"></span>
                     </div>
+                    <div style="text-align: center">
+                        <a th:href="@{/update(id=${id},contenttype = ${contentType})}" >编辑</a>
+                    </div>
 
                     <div class="a_details_c" id="article-view" style="text-align: center">
                             <textarea style="display:none;" th:text="${show.content}"></textarea>
@@ -145,6 +146,19 @@
                     </script>
 
 
+                </div>
+                <div class="a_details_b">
+                    <a href="" th:if="${showpre} == null" class="fl">上一篇：没有了</a>
+                    <a th:href="@{'/show/'+${showpre.id}(type=${showpre.type},contentType=${contentType})}" class="fl" th:if="${showpre} != null">
+                        <span>上一篇：</span>
+                        <span th:text="${showpre.title}"></span>
+                    </a>
+                    <a href="" th:if="${shownext} == null" class="fr">下一篇：没有了</a>
+                    <a th:href="@{'/show/'+${shownext.id}(type=${shownext.type},contentType=${contentType})}" class="fr" th:if="${shownext} != null">
+                        <span>下一篇：</span>
+                        <span th:text="${shownext.title}"></span>
+                    </a>
+                    <div class="clear-both"></div>
                 </div>
 
             </div>
