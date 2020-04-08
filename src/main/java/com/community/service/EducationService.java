@@ -41,4 +41,8 @@ public class EducationService {
     public void update(News news) {
         educationMapper.update(news);
     }
+
+    public void delById(Long id) {
+        educationMapper.delById(id);
+    }
 }

@@ -45,4 +45,8 @@ public class GardenService {
     public void update(Garden garden) {
         gardenMapper.update(garden);
     }
+
+    public void delById(Long id) {
+        gardenMapper.delById(id);
+    }
 }

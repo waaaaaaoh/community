@@ -38,4 +38,8 @@ public class NewsService {
     public void update(News news) {
         newsMapper.update(news);
     }
+
+    public void delbyId(Long id) {
+        newsMapper.delById(id);
+    }
 }

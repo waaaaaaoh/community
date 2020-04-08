@@ -102,4 +102,8 @@ public class Questionservice {
             return questionDTOList;
 
     }
+
+    public void delById(Long id) {
+        questionMapper.delById(id);
+    }
 }

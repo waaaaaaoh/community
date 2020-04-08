@@ -34,4 +34,8 @@ public class ScienceService {
     public void update(Science science) {
         scienceMapper.update(science);
     }
+
+    public void delById(Long id) {
+        scienceMapper.delById(id);
+    }
 }

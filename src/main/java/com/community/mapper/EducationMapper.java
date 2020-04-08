@@ -8,10 +8,10 @@ import java.util.List;
 
 @Mapper
 public interface EducationMapper {
-    @Select("select * from education where type = #{type}")
+    @Select("select * from education where type = #{type} and del != 1")
     List<Education> listFindByType(@Param("type") int type);
 
-    @Select("select * from education where id = #{id}")
+    @Select("select * from education where id = #{id} and del != 1")
     News findById(@Param("id") Long id);
 
     @Update("update education set view_count = view_count + 1 where id = #{id}")
@@ -20,15 +20,18 @@ public interface EducationMapper {
     @Insert("insert into education (title,cover_img,content,gmt_create,type) values (#{title},#{coverImg},#{content},#{gmtCreate},#{type})")
     void create(News news);
 
-    @Select("select * from education  order by id desc limit 2;")
+    @Select("select * from education where del != 1 order by id desc limit 2;")
     List<Education> homepage();
 
-    @Select("select * from education where id in ( select max(id) from news where id < #{id} and type = #{type})")
+    @Select("select * from education where id in ( select max(id) from education where id < #{id} and type = #{type} and del != 1)")
     News findpre(Long id, Integer type);
 
-    @Select("select * from education where id in ( select min(id) from news where id > #{id} and type = #{type})")
+    @Select("select * from education where id in ( select min(id) from education where id > #{id} and type = #{type} and del != 1)")
     News findnext(Long id, Integer type);
 
     @Update("update education set title = #{title},cover_img = #{coverImg},content = #{content} where id = #{id}")
     void update(News news);
+
+    @Update("update education set del = 1  where id = #{id}")
+    void delById(Long id);
 }
