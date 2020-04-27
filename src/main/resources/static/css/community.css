@@ -802,3 +802,7 @@ body{
 .unhidden{
     display: block;
 }
+
+.sel_n .sel_body_name {
+    height: 25px !important;
+}
