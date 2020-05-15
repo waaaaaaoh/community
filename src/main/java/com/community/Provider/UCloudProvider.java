@@ -45,7 +45,6 @@ public class UCloudProvider {
         }else {
             throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
         }
-
         try {
             ObjectAuthorization objectAuthorization = new UfileObjectLocalAuthorization(publicKey, privateKey);
             ObjectConfig config = new ObjectConfig(region, suffix);
@@ -53,9 +52,7 @@ public class UCloudProvider {
                     .putObject(fileStream, mimeType)
                     .nameAs(generateFileName)
                     .toBucket(bucketName)
-                    .setOnProgressListener((bytesWritten, contentLength) -> {
-
-                    })
+                    .setOnProgressListener((bytesWritten, contentLength) -> { })
                     .execute();
             if (response != null && response.getRetCode() == 0) {
                 String url = UfileClient.object(objectAuthorization, config)

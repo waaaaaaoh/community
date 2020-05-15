@@ -41,7 +41,11 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 60px;padding-bottom: 40px">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ykfw" style="padding: 0 80px 0 80px">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: white">
-                <div style="padding: 20px 0 55px 70px; height: 600px;">
+                <div style="padding: 5px 0 0 70px">
+                    请输入起点:<input class="txt" type="text" value="" id="startInput"/>
+                    <input type="button" value="搜索" onclick="mDriving()"/>
+                </div>
+                <div style="padding: 5px 0 55px 70px; height: 600px;">
                     <div style="width:805px;border:#ccc solid 1px;float: left;" id="dituContent"></div>
                     <div style="width:300px;height:550px;float: left;overflow:auto;">
                         <div id="r-result"></div>
@@ -76,7 +80,11 @@
             enableDragging : true //起终点可进行拖拽
         },
     });
-    transit.search("成都信息工程大学","成都植物园");
+
+    function mDriving(){
+        var startPlace = document.getElementById("startInput").value;
+        transit.search(startPlace,"成都植物园");
+    }
 
 </script>
 

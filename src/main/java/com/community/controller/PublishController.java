@@ -1,11 +1,14 @@
 package com.community.controller;
 
 import com.community.Provider.UCloudProvider;
+import com.community.cache.TagCache;
 import com.community.dto.FileDTO;
 import com.community.dto.QuestionDTO;
 import com.community.mapper.QuestionMapper;
 import com.community.model.*;
 import com.community.service.*;
+import javafx.beans.binding.BooleanBinding;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,11 +51,13 @@ public class PublishController {
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", question.getId());
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
     @GetMapping("/publish")
-    public String publish() {
+    public String publish(Model model) {
+        model.addAttribute("tags", TagCache.get());
         return "publish";
     }
 
@@ -68,6 +73,7 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
+        model.addAttribute("tags", TagCache.get());
 
         if (title == null || title == "") {
             model.addAttribute("error", "标题不能为空");
@@ -78,7 +84,13 @@ public class PublishController {
             return "publish";
         }
         if (tag == null || tag == "") {
-            model.addAttribute("error", "tag不能为空");
+            model.addAttribute("error", "标签不能为空");
+            return "publish";
+        }
+
+        String invalid = TagCache.isValid(tag);
+        if(invalid != null){
+            model.addAttribute("error", "输入非法标签"+invalid);
             return "publish";
         }
 

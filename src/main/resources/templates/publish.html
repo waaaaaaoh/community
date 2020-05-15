@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/community.css"/>
     <script src="/jquery/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
 </head>
 <body>
 <div th:insert="~{navigation :: nav}"></div>
@@ -30,7 +31,20 @@
                     </div>
                     <div class="form-group">
                         <label for="tag">添加标签</label>
-                        <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="输入标签，以，隔开">
+                        <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" autocomplete="off" placeholder="输入标签，以，隔开" onclick="showSelectTag()">
+                        <div id="select-tag" class="publish-tag" style="margin-top: 5px">
+                            <span class="label label-info" aria-hidden="true" th:each="selectTag:${tags}" style="margin-right: 5px">
+                                <span class="glyphicon glyphicon-tag"
+                                      onclick="selectTag(this)" th:data-tag="${selectTag}"
+                                      th:text="${selectTag}"></span></span>
+
+                            <!--
+                            <span class="label label-info" aria-hidden="true">
+                                <span class="glyphicon glyphicon-tag" onclick="selectTag('路线推荐')">路线推荐</span></span>
+                            <span class="label label-info" aria-hidden="true">
+                                <span class="glyphicon glyphicon-tag" onclick="selectTag('改进建议')">改进建议</span></span>
+                            -->
+                        </div>
                     </div>
 
                     <div class="container-fluid main">

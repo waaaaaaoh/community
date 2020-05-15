@@ -806,3 +806,7 @@ body{
 .sel_n .sel_body_name {
     height: 25px !important;
 }
+
+.publish-tag{
+    display: none;
+}
