@@ -5,6 +5,7 @@ import com.community.exception.CustomizeErrorCode;
 import com.community.exception.CustomizeException;
 import com.community.mapper.QuestionMapper;
 import com.community.mapper.UserMapper;
+import com.community.model.Garden;
 import com.community.model.Question;
 import com.community.model.User;
 import com.github.pagehelper.Page;
@@ -25,6 +26,14 @@ public class Questionservice {
     private QuestionMapper questionMapper;
     @Autowired
     private UserMapper userMapper;
+
+    public PageInfo<Question> delList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Question> list = questionMapper.delList();
+        PageInfo<Question> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
 
     public PageInfo<Question> list(int pageNum, int pageSize) {
 
@@ -105,5 +114,14 @@ public class Questionservice {
 
     public void delById(Long id) {
         questionMapper.delById(id);
+    }
+
+    public List<Question> topList() {
+        List<Question> questions = questionMapper.topList();
+        return questions;
+    }
+
+    public void resumptionById(Long id) {
+        questionMapper.resumptionById(id);
     }
 }

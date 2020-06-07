@@ -15,7 +15,7 @@
 <body>
 <div th:insert="~{navigation :: nav}"></div>
 
-<div class="container-fluid main">
+<div class="container-fluid main" th:if="${session.user != null && session.user.accountId == '35388665'}">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2>发布文章</h2>
@@ -153,7 +153,7 @@
                     <div class="row">
                         <div class=" col-lg-9 col-md-12 col-sm-12 col-xs-12" >
                         </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
                             <button type="submit" class="btn btn-success btn-publish" id="submit" onclick="out()">发布</button>
                         </div>
                     </div>
@@ -162,11 +162,10 @@
             </form>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>123</h3>
-            ·123123<br>
-            ·123123<br>
-            ·123123<br>
-            ·123123<br>
+            <h3>发布须知</h3>
+            ·请遵守相关法律法规<br>
+            ·请遵守园内规定<br>
+            ·注意内容是否规范<br>
         </div>
     </div>
 </div>

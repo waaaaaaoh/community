@@ -42,4 +42,15 @@ public class NewsService {
     public void delbyId(Long id) {
         newsMapper.delById(id);
     }
+
+    public PageInfo<News> delList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<News> list = newsMapper.delList();
+        PageInfo<News> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    public void resumptionbyId(Long id) {
+        newsMapper.resumptionById(id);
+    }
 }

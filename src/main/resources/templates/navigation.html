@@ -102,6 +102,21 @@
                             </ul>
                         </li>
 
+                        <li class="dropdown" th:if="${session.user != null && session.user.accountId == '35388665'}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">误删恢复
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/resumption/1">新闻动态</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/resumption/2">科学研究</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/resumption/3">科普教育</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/resumption/4">园林园艺</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/resumption/5">论坛文章</a></li>
+                            </ul>
+                        </li>
                         <a class="navbar-brand" href="/article" style="color: white;" th:if="${session.user != null && session.user.accountId == '35388665'}">发布文章</a>
                     </ul>
 

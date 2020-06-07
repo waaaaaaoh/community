@@ -38,6 +38,7 @@ public class UCloudProvider {
     private Integer expires;
 
     public String upload(InputStream fileStream,String mimeType,String fileName){
+        //避免多次上传同一文件时名称重复
         String generateFileName;
         String[] fileSpliter = fileName.split("\\.");
         if(fileSpliter.length > 1){
@@ -45,6 +46,7 @@ public class UCloudProvider {
         }else {
             throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
         }
+
         try {
             ObjectAuthorization objectAuthorization = new UfileObjectLocalAuthorization(publicKey, privateKey);
             ObjectConfig config = new ObjectConfig(region, suffix);

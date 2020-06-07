@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>论坛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/community.css"/>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<!--当未登录回复时 如点击确定按钮 则会跳转登录 且在登陆成功后关闭首页 回到回复问题页面-->
+<script type="application/javascript">
+    window.onload = function () {
+        var closable = window.localStorage.getItem("closable");
+        if (closable == "true") {
+            window.close();
+            window.localStorage.removeItem("closable");
+        }
+    }
+</script>
+
+
+<body>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main" th:if="${session.user != null && session.user.accountId == '35388665'}">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2 >误删恢复-<span aria-hidden="true" th:text="${name}"></span></h2>
+            <hr>
+
+            <div class="media" th:each="del : ${delList.list}">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/'+${del.id}}" style="color: black" th:text="${del.title}"></a>
+                    </h4>
+                    <span th:text="${#dates.format(del.getGmtCreate(),'yyyy-MM-dd HH:mm')}"></span>
+                    <span>发布</span>
+                    <span class="text-desc">
+                        <a th:href="@{/dor(id=${del.id},contenttype = ${contentType})}">
+                            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+                            恢复
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <ul class="pagination pull-right no-margin">
+                    <li th:if="${delList.hasPreviousPage}">
+                        <a th:href="'/resumption/'+${contentType}+'?pageNum=1'">首页</a>
+                    </li>
+
+                    <li class="prev" th:if="${delList.hasPreviousPage}">
+                        <a th:href="'/resumption/'+${contentType}+'?pageNum='+${delList.prePage}">
+                            <i class="ace-icon fa fa-angle-double-left">pre</i>
+                        </a>
+                    </li>
+                    <!--遍历条数-->
+                    <li th:each="nav:${delList.navigatepageNums}">
+                        <a th:href="'/resumption/'+${contentType}+'?pageNum='+${nav}" th:text="${nav}" th:if="${nav != delList.pageNum}"></a>
+                        <span style="font-weight: bold;background: #6faed9;" th:if="${nav == delList.pageNum}"
+                              th:text="${nav}"></span>
+                    </li>
+
+                    <li class="next" th:if="${delList.hasNextPage}">
+                        <a th:href="'/resumption/'+${contentType}+'?pageNum='+${delList.nextPage}">
+                            <i class="ace-icon fa fa-angle-double-right">next</i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a th:href="'/resumption/'+${contentType}+'?pageNum='+${delList.pages}">尾页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>热门话题</h3>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;"><a href="/resumption/1" style="color:white;text-decoration: none;">新闻动态</a></button>
+            <br>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;"><a href="/resumption/2" style="color:white;text-decoration: none;">科学研究</a></button>
+            <br>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;"><a href="/resumption/3" style="color:white;text-decoration: none;">科普教育</a></button>
+            <br>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;"><a href="/resumption/4" style="color:white;text-decoration: none;">园林园艺</a></button>
+            <br>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;"><a href="/resumption/5" style="color:white;text-decoration: none;">论坛文章</a></button>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+<div th:insert="~{footing :: footer}"></div>
+</body>
+</html>

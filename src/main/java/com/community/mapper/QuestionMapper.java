@@ -12,7 +12,7 @@ public interface QuestionMapper {
     @Insert("insert into question (title,description,gmt_create,gmt_modified,creator,tag,avatar_url) values (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag},#{avatarUrl})")
     void create(Question question);
 
-    @Select("select * from question where del != 1")
+    @Select("select * from question where del != 1 order by id desc")
     List<Question> list();
 
     @Select("select * from question where creator = #{userId} and del != 1")
@@ -35,4 +35,13 @@ public interface QuestionMapper {
 
     @Update("update question set del = 1 where id = #{id}")
     void delById(Long id);
+
+    @Select("select * from question where del!= 1 order by view_count desc limit 5")
+    List<Question> topList();
+
+    @Select("select * from question where del= 1")
+    List<Question> delList();
+
+    @Update("update question set del = 0 where id = #{id}")
+    void resumptionById(Long id);
 }

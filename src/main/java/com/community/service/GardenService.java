@@ -49,4 +49,15 @@ public class GardenService {
     public void delById(Long id) {
         gardenMapper.delById(id);
     }
+
+    public PageInfo<Garden> delList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Garden> list = gardenMapper.delList();
+        PageInfo<Garden> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    public void resumptionById(Long id) {
+        gardenMapper.resumptionById(id);
+    }
 }

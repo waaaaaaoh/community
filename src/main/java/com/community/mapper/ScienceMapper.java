@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface ScienceMapper {
-    @Select("select * from science where type = #{type} and del != 1")
+    @Select("select * from science where type = #{type} and del != 1 group by id desc")
     List<Science> listFindByType(@Param("type") int type);
 
     @Select("select * from science where id = #{id} and del != 1")
@@ -34,4 +34,10 @@ public interface ScienceMapper {
 
     @Update("update science set del = 1 where id = #{id}")
     void delById(Long id);
+
+    @Select("select * from science where del = 1")
+    List<Science> delList();
+
+    @Update("update science set del = 0 where id = #{id}")
+    void resumptionById(Long id);
 }

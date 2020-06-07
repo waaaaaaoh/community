@@ -25,8 +25,10 @@ public class GardenController {
         String titleEn = null;
         PageInfo<Garden> news;
         if(contentType == 0){
+//          按分区查询
             news = gardenService.listByType(type, pageNum, pageSize);
         }else {
+//            按分类查询  春夏秋冬
             news = gardenService.listByContenetype(contentType, pageNum, pageSize);
         }
 

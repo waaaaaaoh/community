@@ -16,6 +16,13 @@ public class EducationService {
     @Autowired
     private EducationMapper educationMapper;
 
+    public PageInfo<Education> delList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Education> list = educationMapper.delList();
+        PageInfo<Education> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
 
     public PageInfo<Education> listByType(Integer type, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
@@ -44,5 +51,9 @@ public class EducationService {
 
     public void delById(Long id) {
         educationMapper.delById(id);
+    }
+
+    public void resumptionById(Long id) {
+        educationMapper.resumptionById(id);
     }
 }

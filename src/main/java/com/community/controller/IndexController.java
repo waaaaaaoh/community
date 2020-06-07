@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class IndexController {
 
@@ -27,7 +29,9 @@ public class IndexController {
         PageInfo<Question> question = questionservice.list(pageNum,pageSize);
 //      原本的传往前端的值
 //      List<QuestionDTO> questionList = questionservice.list(page,size);
+        List<Question> top = questionservice.topList();
         model.addAttribute("question",question);
+        model.addAttribute("top",top);
 
         return "index";
 

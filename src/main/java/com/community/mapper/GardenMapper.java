@@ -7,10 +7,10 @@ import java.util.List;
 
 @Mapper
 public interface GardenMapper {
-    @Select("select * from garden where type = #{type} and del != 1")
+    @Select("select * from garden where type = #{type} and del != 1 group by id desc")
     List<Garden> listFindByType(@Param("type") Integer type);
 
-    @Select("select * from garden where content_type = #{contentType} and del != 1")
+    @Select("select * from garden where content_type = #{contentType} and del != 1 group by id desc")
     List<Garden> listFindByContenttype(@Param("contentType") Integer contentType);
 
     @Select("select * from garden where id = #{id} and del != 1")
@@ -36,4 +36,10 @@ public interface GardenMapper {
 
     @Update("update garden set del = 1 where id = #{id}")
     void delById(Long id);
+
+    @Select("select * from garden where del =1")
+    List<Garden> delList();
+
+    @Update("update garden set del = 0 where id = #{id}")
+    void resumptionById(Long id);
 }

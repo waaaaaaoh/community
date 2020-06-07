@@ -52,7 +52,7 @@
                             <div class=" col-lg-9 col-md-12 col-sm-12 col-xs-12" >
                                 <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${error}" th:if="${error}"></div>
                             </div>
-                            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" th:if="${session.user != null}">
                                 <button type="submit" class="btn btn-success btn-publish">发布</button>
                             </div>
                         </div>
@@ -62,11 +62,11 @@
 
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                <h3>123</h3>
-                ·123123<br>
-                ·123123<br>
-                ·123123<br>
-                ·123123<br>
+                <h3>发布须知</h3>
+                ·请遵守相关法律法规<br>
+                ·请勿人身攻击<br>
+                ·尽量避免提及个人信息<br>
+                ·请勿发帖与他人辩论和争吵<br>
             </div>
         </div>
     </div>

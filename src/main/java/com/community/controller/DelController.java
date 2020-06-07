@@ -45,7 +45,6 @@ public class DelController {
             case 4:
                 gardenService.delById(id);
                 break;
-            default:
         }
 
         return "redirect:/home";

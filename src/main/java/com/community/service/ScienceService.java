@@ -38,4 +38,15 @@ public class ScienceService {
     public void delById(Long id) {
         scienceMapper.delById(id);
     }
+
+    public PageInfo<Science> delList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Science> list = scienceMapper.delList();
+        PageInfo<Science> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    public void resumptionById(Long id) {
+        scienceMapper.resumptionById(id);
+    }
 }

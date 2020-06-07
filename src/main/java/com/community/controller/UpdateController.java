@@ -109,7 +109,7 @@ public class UpdateController {
         if(!file.isEmpty()){
             try {
                 url = uCloudProvider.upload(file.getInputStream(),file.getContentType(),file.getOriginalFilename());
-                System.out.println(url);
+//                System.out.println(url);
             } catch (IOException e) {
                 e.printStackTrace();
             }

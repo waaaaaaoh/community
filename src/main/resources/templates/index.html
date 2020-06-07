@@ -84,10 +84,11 @@
 
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h3>热门话题</h3>
-            ·1<br>
-            ·2<br>
-            ·3<br>
-            ·4<br>
+            <ul  th:each="top : ${top}">
+                <li>
+                    <a th:href="@{'/question/'+${top.id}}" th:text="${top.title}"></a><br>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
